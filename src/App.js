@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import './App.css';
 
 import * as gameService from './services/gameService';
 
@@ -9,12 +10,14 @@ import Header from './componnents/Header/Header';
 import Home from './componnents/Home/Home';
 import Login from './componnents/Login/Login';
 import Register from './componnents/Register/Register';
-
-import './App.css';
 import GameDetails from './componnents/GameDetails/GameDetails';
 
 function App() {
-    const [games, setGame] = useState([]);
+    const [games, setGames] = useState([]);
+
+    const addComment = (gameId, comment) => {
+        setGames
+    }
 
     useEffect(() => {
         gameService.getAll()
@@ -37,7 +40,7 @@ function App() {
                     <Route path='/register' element={<Register />} ></Route>
                     <Route path='/create' element={<CreateGame />} ></Route>
                     <Route path='/catalog' element={<Catalog games={games} />} ></Route>
-                    <Route path='/catalog/:gameId' element={<GameDetails />} ></Route>
+                    <Route path='/catalog/:gameId' element={<GameDetails games={games} />} ></Route>
                 </Routes>
 
 
