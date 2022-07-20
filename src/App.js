@@ -1,3 +1,5 @@
+import { Routes, Route } from 'react-router-dom';
+
 import Header from './componnents/Header/Header';
 import Home from './componnents/Home/Home';
 
@@ -6,18 +8,21 @@ import './App.css';
 function App() {
     return (
         <div id="box">
-            
+
             <Header />
 
             {/* Main Content */}
             <main id="main-content">
+                <Routes>
+                    
+                    <Route path='/' element={<Home />}></Route>
+                </Routes>
 
-            <Home />
 
             </main>
             {/*Home Page*/}
 
-           
+
         </div>
 
     );
