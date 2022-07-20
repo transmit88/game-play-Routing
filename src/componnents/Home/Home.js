@@ -24,10 +24,13 @@ const Home = () => {
                 <h1>Latest Games</h1>
                 {/* Display div: with information about every game (if any) */}
 
-                {games.map(x => <LatestGame game={x}/>)}
+                {games.length > 0
+                    ? games.map(x => <LatestGame  key={x._id} game={x} />)
+                    : <p className="no-articles">No games yet</p>
+                }
 
                 {/* Display paragraph: If there is no games  */}
-                <p className="no-articles">No games yet</p>
+
             </div>
         </section>
     );
